@@ -12,14 +12,19 @@
 
 <!-- BEGIN TOC -->
 
+- business-logic
+  - [users.js](#apibusiness-logicusersjs)
 - controllers
   - [hello.js](#apicontrollershellojs)
+  - [users.js](#apicontrollersusersjs)
 - data-access
   - [hello.js](#apidata-accesshellojs)
-- logic
+  - [not-persistent.js](#apidata-accessnot-persistentjs)
+  - [persistent.js](#apidata-accesspersistentjs)
 - middleware
 - routes
   - [hello.js](#apirouteshellojs)
+  - [users.js](#apiroutesusersjs)
 - utils
 - [index.js](#apiindexjs)
 
@@ -31,9 +36,21 @@
 
 <!-- BEGIN DOCS -->
 
+# /business-logic
+
+<details><summary><a href="../../api/business-logic/users.js" id="apibusiness-logicusersjs">../api/business-logic/users.js</a></summary>
+
+</details>
+
+---
+
 # /controllers
 
 <details><summary><a href="../../api/controllers/hello.js" id="apicontrollershellojs">../api/controllers/hello.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/controllers/users.js" id="apicontrollersusersjs">../api/controllers/users.js</a></summary>
 
 </details>
 
@@ -76,9 +93,13 @@ Reads the contents of "hello.txt".
 
 </details>
 
----
+<details><summary><a href="../../api/data-access/not-persistent.js" id="apidata-accessnot-persistentjs">../api/data-access/not-persistent.js</a></summary>
 
-# /logic
+</details>
+
+<details><summary><a href="../../api/data-access/persistent.js" id="apidata-accesspersistentjs">../api/data-access/persistent.js</a></summary>
+
+</details>
 
 ---
 
@@ -89,6 +110,10 @@ Reads the contents of "hello.txt".
 # /routes
 
 <details><summary><a href="../../api/routes/hello.js" id="apirouteshellojs">../api/routes/hello.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/routes/users.js" id="apiroutesusersjs">../api/routes/users.js</a></summary>
 
 </details>
 
