@@ -15,7 +15,7 @@ const channelManager = {
     return channel;
   },
   updateChannel: async (channel) => {
-    const success = await channelStore.update(channel);
+    const success = await channelStore.update(channel.id, channel);
     if (!success) {
       throw new Error('Cannot update a channel that doesn\'t exist!');
     }

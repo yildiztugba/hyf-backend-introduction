@@ -5,7 +5,7 @@ const persistentDataAccess = require('../data-access/persistent');
 const messageStore = persistentDataAccess('messages');
 
 const messageManager = {
-  createMessage: async (user, messageContent) => {
+  createMessage: async (user, messageContent, channelId) => {
     // TODO: implement
   },
   updateMessage: async (message) => {
