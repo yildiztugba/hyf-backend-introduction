@@ -46,7 +46,6 @@ export const homePage = async () => {
   // register event handlers:
   document.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
-        alert('Enter is pressed!');
         sendMessage();
     }
   });

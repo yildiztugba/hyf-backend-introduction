@@ -10,8 +10,8 @@ messageRoutes.use((req, res, next) => {
 
 messageRoutes.get('/messages', messageController.get);
 messageRoutes.get('/channels/:channelId/messages', messageController.getMessagesForChannel);
-messageRoutes.delete('/:messageId', messageController.delete);
-messageRoutes.put('/:messageId', messageController.put);
-messageRoutes.post('/', messageController.post);
+messageRoutes.delete('/messages/:messageId', messageController.delete);
+messageRoutes.put('/messages/:messageId', messageController.put);
+messageRoutes.post('/channels/:channelId/messages', messageController.post);
 
 module.exports = messageRoutes;

@@ -19,6 +19,9 @@ async function performPost(path, body) {
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
     method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(body)
   });
   if (!response.ok) {
@@ -34,6 +37,9 @@ export const fetchChannels = async () => {
 }
 
 export const fetchMessagesForChannel = async (channelId) => {
+  if (!channelId) {
+    return []
+  }
   return await performFetch(`channels/${channelId}/messages`);
 }
 
@@ -42,5 +48,5 @@ export const postChannel = async (channelName) => {
 }
 
 export const postMessage = async (message) => {
-  return await performPost(`channels/${state.channelId}/messages`, {user: state.name, text: message})
+  return await performPost(`channels/${state.currentChannelId}/messages`, {user: state.username, text: message})
 }
