@@ -79,6 +79,10 @@ const persistentDataAccess = (collectionName) => {
       );
       return found;
     },
+
+    all: async () => {
+      return collection;
+    }
   };
 };
 

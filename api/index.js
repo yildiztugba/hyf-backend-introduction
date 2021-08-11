@@ -1,7 +1,6 @@
 const express = require('express');
-
-const helloRoutes = require('./routes/hello');
-const userRoutes = require('./routes/users');
+const channelRoutes = require('./routes/channels');
+const messageRoutes = require('./routes/messages');
 
 const router = express.Router();
 
@@ -15,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 // use routes
-router.use('/hello', helloRoutes);
-router.use('/users', userRoutes);
+router.use('/channels', channelRoutes);
+router.use('/', messageRoutes);
 
 module.exports = router;
