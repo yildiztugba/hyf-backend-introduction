@@ -59,7 +59,7 @@ Fetch Channel
 
 * **URL**
 
-  /channels/:channelId
+  /api/channels/:channelId
 
 * **Method:**
 
@@ -88,7 +88,7 @@ Delete Channel
 
 * **URL**
 
-  /channels/:channelId
+  /api/channels/:channelId
 
 * **Method:**
 
@@ -117,7 +117,7 @@ Update Channel
 
 * **URL**
 
-  /channels/:channelId
+  /api/channels/:channelId
 
 * **Method:**
 
@@ -152,7 +152,7 @@ Create Channel
 
 * **URL**
 
-  /channels
+  /api/channels
 
 * **Method:**
 
@@ -184,7 +184,7 @@ Get all messages
 
 * **URL**
 
-  /messages
+  /api/messages
 
 * **Method:**
 
@@ -211,7 +211,7 @@ Get all messages
 
 * **URL**
 
-  /channels/:channelId/messages
+  /api/channels/:channelId/messages
 
 * **Method:**
 
@@ -243,7 +243,7 @@ Get all messages
 
 * **URL**
 
-  /messages/:messageId
+  /api/messages/:messageId
 
 * **Method:**
 
@@ -270,7 +270,7 @@ Get all messages
 
 * **URL**
 
-  /messages/:messageId
+  /api/messages/:messageId
 
 * **Method:**
 
@@ -313,7 +313,7 @@ Get all messages
 
 * **URL**
 
-  /channels/:channelId/messages
+  /api/channels/:channelId/messages
 
 * **Method:**
 
