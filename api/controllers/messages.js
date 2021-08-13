@@ -46,7 +46,7 @@ const messageController = {
     try {
       const messageId = req.params.messageId;
       await messageManager.removeMessage(messageId);
-      res.status(200).send(`Message with id ${messageId} was successfully deleted!`);
+      res.status(200).send(JSON.stringify({message: `Message with id ${messageId} was successfully deleted!`}));
     } catch (error) {
       res.status(500).send(error);
     }
