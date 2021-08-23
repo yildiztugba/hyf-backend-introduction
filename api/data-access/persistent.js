@@ -50,6 +50,8 @@ const persistentDataAccess = (collectionName) => {
         const itemIndex = collection.indexOf(found);
         collection[itemIndex] = newEntry;
         await persist(cached);
+
+        return true
       } else {
         // or error?
         return false;
@@ -61,6 +63,8 @@ const persistentDataAccess = (collectionName) => {
         const itemIndex = collection.indexOf(found);
         collection.splice(itemIndex, 1);
         await persist(cached);
+
+        return true
       } else {
         // or error?
         return false;
