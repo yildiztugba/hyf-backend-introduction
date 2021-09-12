@@ -1,5 +1,18 @@
 {
-  "users": [],
+  "users": [
+    {
+      "username": "erkam",
+      "password": "c0067d4af4e87f00dbac63b6156828237059172d1bbeac67427345d6a9fda484"
+    },
+    {
+      "username": "erkam2",
+      "password": "c0067d4af4e87f00dbac63b6156828237059172d1bbeac67427345d6a9fda484"
+    },
+    {
+      "username": "erka",
+      "password": "600fd81406bfacccab64cb682f1de946005d20e7e1da91353661d0ec2b64f416"
+    }
+  ],
   "channels": [
     {
       "id": "6119132ba2e3627c07000001",

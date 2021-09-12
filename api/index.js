@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 
 //register
-// router.use('/register', registerRoute);
+router.use('/register', registerRoute);
 
 // login
 // router.use('/login', loginRoute);
