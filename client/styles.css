@@ -493,10 +493,21 @@ form div {
   flex-direction: column;
 }
 
-#warning {
-  background-color: #eb4d5c;
-  color: #fff;
+#error {
+  color: #d8000c;
+  background-color: #ffd2d2;
   padding: 1rem 2rem;
   font-weight: bolder;
   display: none;
+}
+
+#success {
+  color: #4f8a10;
+  background-color: #dff2bf;
+  padding: 1rem 2rem;
+  display: none;
+}
+
+#success span {
+  font-weight: bolder;
 }

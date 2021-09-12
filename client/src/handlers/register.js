@@ -1,13 +1,8 @@
 // import { postRegisterUser } from '../api-calls/calls';
 
-function registerUser(event) {
+async function registerUser(event) {
   event.preventDefault();
   event.stopPropagation();
-
-  // console.log('register user');
-  // console.log(event.target[0].value);
-  // console.log(event.target[1].value);
-  // console.log(event.target[2].value);
 
   if (event.target[1].value !== event.target[2].value) {
     const warningDisplay = document.getElementById('warning');
@@ -21,9 +16,34 @@ function registerUser(event) {
     return;
   }
 
-  postRegisterUser(event.target[0].value, event.target[1].value);
+  const response = await postRegisterUser(
+    event.target[0].value,
+    event.target[1].value
+  );
 
-  // const result = postRegisterUser(event.);
+  if (response.error) {
+    const warningDisplay = document.getElementById('error');
+    warningDisplay.innerHTML = `<i class="fa fa-times-circle"></i> ${response.error}`;
+    warningDisplay.style.display = 'block';
+
+    setTimeout(() => {
+      warningDisplay.innerHTML = '';
+      warningDisplay.style.display = 'none';
+    }, 3000);
+    return;
+  }
+
+  if (response.username) {
+    const successDisplay = document.getElementById('success');
+    successDisplay.innerHTML = `<i class="fa fa-check"></i> User <span>${response.username}</span> is successfully added!`;
+    successDisplay.style.display = 'block';
+
+    setTimeout(() => {
+      successDisplay.innerHTML = '';
+      successDisplay.style.display = 'none';
+    }, 3000);
+    return;
+  }
 }
 
 exports = { registerUser };
@@ -57,14 +77,8 @@ async function performPost(path, body) {
     body: JSON.stringify(body),
   });
 
-  console.log(response);
-
   if (!response.ok) {
-    console.log(response);
-    throw new Error(
-      `HTTP error! status: ${response.status}\n-> ${URL}
-      ${response.error}`
-    );
+    throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
   }
   const data = await response.json();
 

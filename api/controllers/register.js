@@ -10,8 +10,11 @@ const registerController = {
       const result = await registerManager.register(username, password);
       res.status(200).json(result);
     } catch (error) {
-      res.status(500).send(JSON.stringify({ error }));
-      // res.status(500).json({ error: error.message });
+      if (error.message === 'User already exists') {
+        res.json({ error: error.message });
+      } else {
+        res.status(500).json({ error: error.message });
+      }
     }
   },
 };

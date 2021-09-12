@@ -1,20 +1,16 @@
 {
   "users": [
     {
-      "username": "erkam",
-      "password": "c0067d4af4e87f00dbac63b6156828237059172d1bbeac67427345d6a9fda484"
-    },
-    {
-      "username": "erkam2",
-      "password": "a03ab19b866fc585b5cb1812a2f63ca861e7e7643ee5d43fd7106b623725fd67"
-    },
-    {
-      "username": "erkam21",
-      "password": "a03ab19b866fc585b5cb1812a2f63ca861e7e7643ee5d43fd7106b623725fd67"
-    },
-    {
       "username": "a",
-      "password": "8a5e1d339fafc39350fd8cf1d7ca7982091c27f6b77f75bd4ddab3df425b4f8c"
+      "password": "67b176705b46206614219f47a05aee7ae6a3edbe850bbbe214c536b989aea4d2"
+    },
+    {
+      "username": "as",
+      "password": "67b176705b46206614219f47a05aee7ae6a3edbe850bbbe214c536b989aea4d2"
+    },
+    {
+      "username": "aweq",
+      "password": "67b176705b46206614219f47a05aee7ae6a3edbe850bbbe214c536b989aea4d2"
     }
   ],
   "channels": [

@@ -26,7 +26,7 @@ const registerManager = {
 
     await usersStore.create(user);
 
-    return user;
+    return { username };
   },
 };
 
