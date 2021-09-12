@@ -4,10 +4,22 @@ function registerUser(event) {
   event.preventDefault();
   event.stopPropagation();
 
-  console.log('register user');
-  console.log(event.target[0].value);
-  console.log(event.target[1].value);
-  console.log(event.target[2].value);
+  // console.log('register user');
+  // console.log(event.target[0].value);
+  // console.log(event.target[1].value);
+  // console.log(event.target[2].value);
+
+  if (event.target[1].value !== event.target[2].value) {
+    const warningDisplay = document.getElementById('warning');
+    warningDisplay.innerHTML = 'Passwords do not match!';
+    warningDisplay.style.display = 'block';
+
+    setTimeout(() => {
+      warningDisplay.innerHTML = '';
+      warningDisplay.style.display = 'none';
+    }, 3000);
+    return;
+  }
 
   postRegisterUser(event.target[0].value, event.target[1].value);
 
@@ -20,7 +32,11 @@ exports = { registerUser };
 /** delete below */
 
 const postRegisterUser = async (username, password) => {
-  console.log('frontend ', username, password);
+  const btn = document.getElementById('register-btn');
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.disabled = false;
+  }, 2000);
 
   return await performPost('register', {
     username,
@@ -44,7 +60,11 @@ async function performPost(path, body) {
   console.log(response);
 
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
+    console.log(response);
+    throw new Error(
+      `HTTP error! status: ${response.status}\n-> ${URL}
+      ${response.error}`
+    );
   }
   const data = await response.json();
 

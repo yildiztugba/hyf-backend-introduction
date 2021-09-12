@@ -473,7 +473,12 @@ main {
 
 /* login & register page */
 
-form,
+form {
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
 form div {
   margin-top: 1rem;
   padding: 0 1rem;
@@ -486,4 +491,12 @@ form div {
 }
 .flex-column {
   flex-direction: column;
+}
+
+#warning {
+  background-color: #eb4d5c;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-weight: bolder;
+  display: none;
 }

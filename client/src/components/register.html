@@ -11,32 +11,49 @@
   </head>
   <body>
     <div class="flex-container flex-column">
-        <form action="" id="register-form">
-            <div>
-                <label for="username">Username* : </label>
-                <input type="text" id="username" placeholder="Username" name="username" required></input>
-            </div>
-            <div>            
-                <label for="password">Password * : </label>
-                <input type="password" id="password" placeholder="Password" name="password" required></input>
-            </div>
-            <div>
-                <label for="confirm-password">Confirm Password * : </label>
-                <input type="password" id="confirm-password" placeholder="Confirm Password" name="confirm-password" required></input>
-                              
-            </div>
-            <div>
-              <input type="submit" value="Submit">  
-            </div>
-        </form>
+      <div id="warning"></div>
+      <form action="" id="register-form">
+        <div>
+          <label for="username">Username* : </label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            name="username"
+            required
+          />
+        </div>
+        <div>
+          <label for="password">Password * : </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+        </div>
+        <div>
+          <label for="confirm-password">Confirm Password * : </label>
+          <input
+            type="password"
+            id="confirm-password"
+            placeholder="Confirm Password"
+            name="confirm-password"
+            required
+          />
+        </div>
+        <div>
+          <input type="submit" value="Submit" id="register-btn" />
+        </div>
+      </form>
     </div>
 
-    <script type="text/javascript"  src="../handlers/register.js"></script>
+    <script type="text/javascript" src="../handlers/register.js"></script>
     <script type="text/javascript">
-
-    document
-      .getElementById("register-form")
-      .addEventListener('submit', registerUser);
+      document
+        .getElementById('register-form')
+        .addEventListener('submit', registerUser);
     </script>
   </body>
 </html>
