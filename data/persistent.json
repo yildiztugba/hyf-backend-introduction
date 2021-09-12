@@ -11,6 +11,18 @@
     {
       "username": "erka",
       "password": "600fd81406bfacccab64cb682f1de946005d20e7e1da91353661d0ec2b64f416"
+    },
+    {
+      "username": "a",
+      "password": "67b176705b46206614219f47a05aee7ae6a3edbe850bbbe214c536b989aea4d2"
+    },
+    {
+      "username": "1",
+      "password": "67b176705b46206614219f47a05aee7ae6a3edbe850bbbe214c536b989aea4d2"
+    },
+    {
+      "username": "aga",
+      "password": "67b176705b46206614219f47a05aee7ae6a3edbe850bbbe214c536b989aea4d2"
     }
   ],
   "channels": [
@@ -47,6 +59,27 @@
       "id": "61191b190df02d3e1e000001",
       "user": "erkam",
       "date": "2021-08-15T13:48:09.876Z",
+      "channelId": "61191b0a3f8b5fde1d000001"
+    },
+    {
+      "text": "hi again",
+      "id": "613dfc968e37c0a805000001",
+      "user": "er",
+      "date": "2021-09-12T13:11:50.115Z",
+      "channelId": "61191b0a3f8b5fde1d000001"
+    },
+    {
+      "text": "hi",
+      "id": "613e0a99c6d1fce408000001",
+      "user": "a",
+      "date": "2021-09-12T14:11:37.331Z",
+      "channelId": "61224defde5c815c11000001"
+    },
+    {
+      "text": "WOW",
+      "id": "613e0c9a6367922009000001",
+      "user": "1",
+      "date": "2021-09-12T14:20:10.361Z",
       "channelId": "61191b0a3f8b5fde1d000001"
     }
   ]

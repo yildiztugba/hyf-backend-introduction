@@ -1,16 +1,22 @@
-import { state } from "../state/state.js";
+import { state } from '../state/state.js';
 
 async function performFetch(path) {
-    const URL = `${window.location.origin}/api/${path}`;
+  const URL = `${window.location.origin}/api/${path}`;
 
-    const encodedURL = encodeURI(URL);
-    const response = await fetch(encodedURL);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
-    }
-    const data = await response.json();
-  
-    return data;
+  const encodedURL = encodeURI(URL);
+  const response = await fetch(encodedURL, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      // Authorization: `Bearer ${state.token}`,
+    },
+  });
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
+  }
+  const data = await response.json();
+
+  return data;
 }
 
 async function performPost(path, body) {
@@ -18,11 +24,12 @@ async function performPost(path, body) {
 
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      // Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   });
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
@@ -34,19 +41,42 @@ async function performPost(path, body) {
 
 export const fetchChannels = async () => {
   return await performFetch('channels');
-}
+};
 
 export const fetchMessagesForChannel = async (channelId) => {
   if (!channelId) {
     return [];
   }
   return await performFetch(`channels/${channelId}/messages`);
-}
+};
 
 export const postChannel = async (channelName) => {
-  return await performPost('channels', {name: channelName});
-}
+  return await performPost('channels', { name: channelName });
+};
 
 export const postMessage = async (message) => {
-  return await performPost(`channels/${state.currentChannelId}/messages`, {user: state.username, text: message})
-}
+  return await performPost(`channels/${state.currentChannelId}/messages`, {
+    user: state.username,
+    text: message,
+  });
+};
+
+export const postRegisterUser = async (username, password) => {
+  return await performPost('/register', {
+    username,
+    password,
+  });
+};
+
+export const postLogin = async (username, password) => {
+  return await performPost('/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username: username,
+      password: password,
+    }),
+  });
+};

@@ -9,10 +9,12 @@ const registerManager = {
     const hashedPassword = hashPassword(password);
     const user = { username: username, password: hashedPassword };
 
+    console.log(user);
+
     // check if user already exists
     const registeredUsers = await usersStore.all();
 
-    // console.log('existing user:', registeredUsers);
+    console.log('existing user:', registeredUsers);
 
     const existingUser = registeredUsers.find(
       (user) => user.username === username
@@ -24,7 +26,6 @@ const registerManager = {
 
     await usersStore.create(user);
 
-    // console.log(user);
     return user;
   },
 };
