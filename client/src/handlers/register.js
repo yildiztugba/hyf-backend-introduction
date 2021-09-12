@@ -42,8 +42,9 @@ async function registerUser(event) {
       successDisplay.innerHTML = '';
       successDisplay.style.display = 'none';
     }, 3000);
-    return;
   }
+
+  // TODO redirect to login page
 }
 
 exports = { registerUser };

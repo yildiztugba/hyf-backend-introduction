@@ -510,4 +510,6 @@ form div {
 
 #success span {
   font-weight: bolder;
+  font-style: italic;
+  margin: 0 0.75rem;
 }
