@@ -1,8 +1,8 @@
 const persistentDataAccess = require('../data-access/persistent');
-const createToken = require('../utils/createToken');
 
 const usersStore = persistentDataAccess('users');
 
+const createToken = require('../utils/createToken');
 const hashPassword = require('../utils/hashPassword');
 
 const loginManager = {

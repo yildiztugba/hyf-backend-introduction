@@ -3,6 +3,7 @@ const channelRoutes = require('./routes/channels');
 const messageRoutes = require('./routes/messages');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
+const authenticateUser = require('./middleware/authenticate');
 
 // const app = express();
 
@@ -24,11 +25,7 @@ router.use('/register', registerRoute);
 router.use('/login', loginRoute);
 
 // authentication with token
-router.use((req, res, next) => {
-  // TODO: check if token is valid
-  console.log('auth middleware');
-  next();
-});
+router.use(authenticateUser);
 
 // use routes
 router.use('/channels', channelRoutes);

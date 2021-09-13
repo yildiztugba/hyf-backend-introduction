@@ -9,6 +9,7 @@ async function performFetch(path) {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${state.token}`,
+      Username: state.username === undefined ? '' : state.username,
     },
   });
   if (!response.ok) {
@@ -28,6 +29,7 @@ async function performPost(path, body) {
     headers: {
       'Content-Type': 'application/json',
       Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Username: state.username === undefined ? '' : state.username,
     },
     body: JSON.stringify(body),
   });
