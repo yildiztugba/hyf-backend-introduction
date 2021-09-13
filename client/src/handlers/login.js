@@ -1,5 +1,7 @@
 // import { postRegisterUser } from '../api-calls/calls';
 
+// import { state } from '../state/state';
+
 async function loginUser(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -33,12 +35,15 @@ async function loginUser(event) {
     }, 3000);
   }
 
-  console.log(response.token);
+  console.log(response);
 
-  // TODO auth procedures
-  state.token = response.token;
+  // auth procedures
+  // state.token = response.token;
+  // state.username = response.username;
+  // state.isLoggedIn = true;
 
   // TODO redirect to the chat page
+  // console.log(state);
 }
 
 exports = { loginUser: loginUser };
