@@ -1,6 +1,4 @@
-import registerUser from '../handlers/register.js';
-
-export const registerPage = () => {
+export const registerPageComponent = () => {
   const container = document.createElement('div');
   container.style = 'height:100%;';
   container.className = 'flex-container flex-column';
@@ -26,8 +24,6 @@ export const registerPage = () => {
     </form>`;
 
   const register = container.querySelector('#register');
-
-  register.addEventListener('submit', registerUser);
 
   return container;
 };

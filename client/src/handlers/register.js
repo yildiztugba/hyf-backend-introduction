@@ -1,5 +1,7 @@
 // import { postRegisterUser } from '../api-calls/calls';
 
+import { registerPageComponent } from '../components/register-page.component.js';
+
 export async function registerUser(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -48,6 +50,15 @@ export async function registerUser(event) {
 export function registerUserLink(event) {
   event.preventDefault();
   event.stopPropagation();
+
+  const root = document.getElementById('root');
+  while (root.firstChild) {
+    root.removeChild(root.firstChild);
+  }
+
+  const registerPage = registerPageComponent();
+
+  root.appendChild(registerPage);
 
   console.log(event.target);
 }
