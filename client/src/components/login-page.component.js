@@ -10,6 +10,7 @@ export const loginPageComponent = () => {
         <span id="success-tex"></span>
       </div>
       <form action="" id="login-form">
+        <h3>Login to HYF Chat App</h3>
         <div>
           <label for="username">Username* : </label>
           <input

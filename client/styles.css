@@ -476,6 +476,7 @@ main {
 form {
   border: 1px solid #e0e0e0;
   border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
   padding: 1rem;
   margin: 0.5rem;
 }
@@ -483,6 +484,11 @@ form {
 form div {
   margin-top: 1rem;
   padding: 0 1rem;
+}
+
+form h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .flex-container {
