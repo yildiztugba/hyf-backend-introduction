@@ -3,5 +3,5 @@ export const state = {
   currentChannelName: undefined,
   username: '',
   isSignedIn: false,
-  token: undefined,
+  token: '',
 };

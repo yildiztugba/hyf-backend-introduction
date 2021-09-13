@@ -1,12 +1,15 @@
 {
   "users": [
     {
+      "id": "613f4a72f5a832aa04000001",
       "username": "erkam",
-      "password": "c0067d4af4e87f00dbac63b6156828237059172d1bbeac67427345d6a9fda484"
-    },
-    {
-      "username": "GURESEN",
-      "password": "ff4ac5e55ad7e359aa112ecbb97eb92204a39a6a2c7caec53e2b40908601390e"
+      "password": "c0067d4af4e87f00dbac63b6156828237059172d1bbeac67427345d6a9fda484",
+      "token": {
+        "aa731564caafff0f36f56b7fd6e3d28b6ed0c06832505e860c07a0cc48bc43ea": {
+          "createdAt": 1631537893847,
+          "expiresIn": 604800000
+        }
+      }
     }
   ],
   "channels": [

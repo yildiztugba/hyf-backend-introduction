@@ -28,12 +28,12 @@ const loginManager = {
       throw new Error('Invalid username or password !');
     }
 
-    // create a new session for the user
-    // generate a new session id
     const token = createToken();
-    // sessions.push({ token: token, username: username });
+    existingUser.token = token;
 
-    console.log(token);
+    const update = await usersStore.update(existingUser.id, existingUser);
+
+    console.log(update, token);
     return {
       token: token,
       username,

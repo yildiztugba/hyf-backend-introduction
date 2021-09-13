@@ -1,4 +1,5 @@
 const persistentDataAccess = require('../data-access/persistent');
+const objectId = require('objectid');
 
 const usersStore = persistentDataAccess('users');
 
@@ -7,7 +8,12 @@ const hashPassword = require('../utils/hashPassword');
 const registerManager = {
   register: async function (username, password) {
     const hashedPassword = hashPassword(password);
-    const user = { username: username, password: hashedPassword };
+    const id = objectId().toString();
+    const user = {
+      id: id,
+      username: username,
+      password: hashedPassword,
+    };
 
     console.log(user);
 

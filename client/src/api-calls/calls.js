@@ -8,7 +8,7 @@ async function performFetch(path) {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      // Authorization: `Bearer ${state.token}`,
+      Authorization: `Bearer ${state.token}`,
     },
   });
   if (!response.ok) {
@@ -27,7 +27,7 @@ async function performPost(path, body) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      // Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
     },
     body: JSON.stringify(body),
   });
