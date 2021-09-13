@@ -1,28 +1,53 @@
-export const loginPage = () => {
+export const loginPageComponent = () => {
   const container = document.createElement('div');
   container.className = 'flex-container flex-column';
 
   container.innerHTML = `
-  <form action="/api/register" method="post">
-  <div>
-      <label for="username">Username* : </label>
-      <input type="text" id="username" placeholder="Username" name="username" required></input>
-  </div>
-  <div>            
-      <label for="password">Password * : </label>
-      <input type="password" id="password" placeholder="Password" name="password" required></input>
-  </div>
-  <div>
-      <input type="button" value="Register" id="register">
-      <input type="submit" value="Submit">                
-  </div>
-</form>
-  `;
+  <div id="error">
+        <i class="fa fa-times-circle"></i> <span id="error-text"></span>
+      </div>
+      <div id="success">
+        <span id="success-tex"></span>
+      </div>
+      <form action="" id="login-form">
+        <div>
+          <label for="username">Username* : </label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            name="username"
+            required
+          />
+        </div>
+        <div>
+          <label for="password">Password * : </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+        </div>
 
-  const register = container.querySelector('#register');
-  register.addEventListener('click', () => {
-    window.location.href = '/api/register';
-  });
+        <div class="d-flex justify-content-between">
+          <input
+            type="button"
+            value="Register"
+            id="register-link-btn"
+            class="btn btn-outline-secondary"
+          />
+
+          <input
+            type="submit"
+            value="Submit"
+            id="login-submit-btn"
+            class="btn btn-outline-primary"
+          />
+        </div>
+      </form>
+  `;
 
   return container;
 };

@@ -2,7 +2,7 @@
 
 // import { state } from '../state/state';
 
-async function loginUser(event) {
+export async function loginUser(event) {
   event.preventDefault();
   event.stopPropagation();
 
@@ -45,8 +45,6 @@ async function loginUser(event) {
   // TODO redirect to the chat page
   // console.log(state);
 }
-
-exports = { loginUser: loginUser };
 
 /** delete below */
 

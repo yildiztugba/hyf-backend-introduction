@@ -1,6 +1,6 @@
 // import { postRegisterUser } from '../api-calls/calls';
 
-async function registerUser(event) {
+export async function registerUser(event) {
   event.preventDefault();
   event.stopPropagation();
 
@@ -43,12 +43,14 @@ async function registerUser(event) {
       successDisplay.style.display = 'none';
     }, 3000);
   }
-
-  // TODO redirect to login page
 }
 
-exports = { registerUser };
-// module.exports = registerUser;
+export function registerUserLink(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  console.log(event.target);
+}
 
 /** delete below */
 
