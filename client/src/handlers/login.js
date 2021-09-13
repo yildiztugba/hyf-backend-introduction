@@ -1,22 +1,10 @@
 // import { postRegisterUser } from '../api-calls/calls';
 
-async function registerUser(event) {
+async function loginUser(event) {
   event.preventDefault();
   event.stopPropagation();
 
-  if (event.target[1].value !== event.target[2].value) {
-    const warningDisplay = document.getElementById('error');
-    warningDisplay.innerHTML = 'Passwords do not match!';
-    warningDisplay.style.display = 'block';
-
-    setTimeout(() => {
-      warningDisplay.innerHTML = '';
-      warningDisplay.style.display = 'none';
-    }, 3000);
-    return;
-  }
-
-  const response = await postRegisterUser(
+  const response = await postLoginUser(
     event.target[0].value,
     event.target[1].value
   );
@@ -35,7 +23,8 @@ async function registerUser(event) {
 
   if (response.username) {
     const successDisplay = document.getElementById('success');
-    successDisplay.innerHTML = `<i class="fa fa-check"></i> User <span>${response.username}</span> is successfully added!`;
+    successDisplay.innerHTML = `<i class="fa fa-check"></i> User 
+    <span>${response.username}</span> is successfully logged in!`;
     successDisplay.style.display = 'block';
 
     setTimeout(() => {
@@ -44,22 +33,24 @@ async function registerUser(event) {
     }, 3000);
   }
 
-  // TODO redirect to login page
+  console.log(response);
+
+  // TODO redirect to the chat page
+  // TODO auth procedures
 }
 
-exports = { registerUser };
-// module.exports = registerUser;
+exports = { loginUser: loginUser };
 
 /** delete below */
 
-const postRegisterUser = async (username, password) => {
-  const btn = document.getElementById('register-btn');
+const postLoginUser = async (username, password) => {
+  const btn = document.getElementById('login-btn');
   btn.disabled = true;
   setTimeout(() => {
     btn.disabled = false;
   }, 2000);
 
-  return await performPost('register', {
+  return await performPost('login', {
     username,
     password,
   });
