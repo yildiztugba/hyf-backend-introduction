@@ -5,8 +5,6 @@ const registerController = {
     try {
       const { username: username, password } = req.body;
 
-      console.log(req.body);
-
       const result = await registerManager.register(username, password);
       res.status(200).json(result);
     } catch (error) {

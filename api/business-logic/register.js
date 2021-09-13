@@ -15,12 +15,8 @@ const registerManager = {
       password: hashedPassword,
     };
 
-    console.log(user);
-
     // check if user already exists
     const registeredUsers = await usersStore.all();
-
-    console.log('existing user:', registeredUsers);
 
     const existingUser = registeredUsers.find(
       (user) => user.username === username

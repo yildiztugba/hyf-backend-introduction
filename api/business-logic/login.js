@@ -29,10 +29,8 @@ const loginManager = {
 
     const update = await usersStore.update(existingUser.id, existingUser);
 
-    console.log(update, token);
     return {
       token: Object.keys(token)[0],
-      // token: token,
       username,
       message: `Session created for user ${username}`,
     };

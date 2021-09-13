@@ -4,9 +4,6 @@ const authenticateUser = async function (req, res, next) {
   const tokenHeader = req.headers.authorization;
   const username = req.headers.username;
 
-  console.log(tokenHeader);
-  console.log(username);
-
   if (!tokenHeader || !username) {
     return res.status(401).send({
       message: 'Unauthorized',
@@ -14,8 +11,6 @@ const authenticateUser = async function (req, res, next) {
   }
 
   const tokenArray = tokenHeader.split(' ');
-
-  console.log(tokenArray);
 
   if (tokenArray[0] !== 'Bearer' || tokenArray.length !== 2) {
     return res.status(401).send({

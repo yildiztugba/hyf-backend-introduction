@@ -64,7 +64,7 @@ const registerUpdates = (headerEl, channelListEl, messagesEl) => {
     const channels = await fetchChannels();
     channelListEl.innerHTML = getChannelListInnerHtml(channels);
     messagesEl.innerHTML = getMessagesInnerHtml(messages);
-  }, 300);
+  }, 500);
 };
 
 const getChannelListInnerHtml = (channels) => {
@@ -72,10 +72,10 @@ const getChannelListInnerHtml = (channels) => {
     .map((c) => {
       if (state.currentChannelId === c.id) {
         return `<li data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel active"><a data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel_name">
-      <span data-channel-id="${c.id}" data-channel-name="${c.name}"><span data-channel-id="${c.id}" data-channel-name="${c.name}" class="prefix">#</span>${c.name}</span></a></li>`;
+      <span data-channel-id="${c.id}" data-channel-name="${c.name}"><span data-channel-id="${c.id}" data-channel-name="${c.name}" class="prefix"> # </span>${c.name}</span></a></li>`;
       } else {
         return `<li data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel"><a data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel_name">
-      <span data-channel-id="${c.id}" data-channel-name="${c.name}"><span data-channel-id="${c.id}" data-channel-name="${c.name}" class="prefix">#</span>${c.name}</span></a></li>`;
+      <span data-channel-id="${c.id}" data-channel-name="${c.name}"><span data-channel-id="${c.id}" data-channel-name="${c.name}" class="prefix"> # </span>${c.name}</span></a></li>`;
       }
     })
     .join('');
@@ -100,7 +100,7 @@ const getMessagesInnerHtml = (messages) => {
     <span class="message_timestamp">${m.date.toString()}</span>
     <span class="message_star"></span>
     <span class="message_content">
-     ${m.text}
+      ${m.text}
     </span>
   </div>
   `

@@ -327,9 +327,19 @@ main {
   margin-right: 17px;
   color: #ffffff;
   padding-left: 1rem;
+  margin-bottom: 10px; /*  */
 }
 .channel.active {
-  background: #4c9689;
+  background: #4c9688;
+}
+
+/*  */
+.channel span,
+.channel a,
+.channel.active span {
+  border: none;
+  text-decoration: none;
+  color: #fff;
 }
 
 .unread {
