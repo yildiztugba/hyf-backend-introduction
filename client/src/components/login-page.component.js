@@ -1,9 +1,10 @@
 export const loginPageComponent = () => {
   const container = document.createElement('div');
+  container.style = 'height:100%;';
   container.className = 'flex-container flex-column';
 
   container.innerHTML = `
-  <div id="error">
+      <div id="error">
         <i class="fa fa-times-circle"></i> <span id="error-text"></span>
       </div>
       <div id="success">

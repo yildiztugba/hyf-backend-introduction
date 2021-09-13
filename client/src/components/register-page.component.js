@@ -4,26 +4,59 @@ export const registerPageComponent = () => {
   container.className = 'flex-container flex-column';
 
   container.innerHTML = `
-    <form action="" id="register-form">
-        <div>
-            <label for="username">Username* : </label>
-            <input type="text" id="username" placeholder="Username" name="username" required></input>
+  <div id="error">
+        <i class="fa fa-times-circle"></i> <span id="error-text"></span>
+      </div>
+      <div id="success">
+        <span id="success-tex"></span>
+      </div>
+      <form action="" id="register-form">
+        <h3>Register a new user</h3>
+        <div class="input-container">
+          <div>
+            <input
+              type="text"
+              id="username"
+              placeholder="Username*"
+              name="username"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password*"
+              name="password"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="Confirm Password*"
+              name="confirm-password"
+              required
+            />
+          </div>
         </div>
-        <div>            
-            <label for="password">Password * : </label>
-            <input type="password" id="password" placeholder="Password" name="password" required></input>
-        </div>
-        <div>
-            <label for="confirm-password">Confirm Password * : </label>
-            <input type="password" id="confirm-password" placeholder="Confirm Password" name="confirm-password" required></input>
-                            
-        </div>
-        <div>
-            <input type="submit" value="Submit">  
-        </div>
-    </form>`;
+        <div class="d-flex justify-content-between">
+          <input
+            type="button"
+            value="Login"
+            id="login-link-btn"
+            class="btn btn-outline-secondary"
+          />
 
-  const register = container.querySelector('#register');
+          <input
+            type="submit"
+            value="Submit"
+            id="register-submit-btn"
+            class="btn btn-outline-primary"
+          />
+        </div>
+      </form>`;
 
   return container;
 };

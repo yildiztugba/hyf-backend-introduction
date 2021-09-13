@@ -1,6 +1,8 @@
 // import { postRegisterUser } from '../api-calls/calls';
+import { loginPageComponent } from '../components/login-page.component.js';
 
-// import { state } from '../state/state';
+import { state } from '../state/state.js';
+import { registerUserLink } from './register.js';
 
 export async function loginUser(event) {
   event.preventDefault();
@@ -38,12 +40,32 @@ export async function loginUser(event) {
   console.log(response);
 
   // auth procedures
-  // state.token = response.token;
-  // state.username = response.username;
-  // state.isLoggedIn = true;
+  state.token = response.token;
+  state.username = response.username;
+  state.isLoggedIn = true;
 
   // TODO redirect to the chat page
-  // console.log(state);
+  console.log(state);
+}
+
+export function loginUserLink(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  const root = document.getElementById('root');
+  while (root.firstChild) {
+    root.removeChild(root.firstChild);
+  }
+
+  const loginPage = loginPageComponent();
+
+  root.appendChild(loginPage);
+
+  document.getElementById('login-form').addEventListener('submit', loginUser);
+
+  document
+    .getElementById('register-link-btn')
+    .addEventListener('click', registerUserLink);
 }
 
 /** delete below */

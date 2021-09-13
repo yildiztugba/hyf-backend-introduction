@@ -1,6 +1,7 @@
 // import { postRegisterUser } from '../api-calls/calls';
 
 import { registerPageComponent } from '../components/register-page.component.js';
+import { loginUserLink } from '../handlers/login.js';
 
 export async function registerUser(event) {
   event.preventDefault();
@@ -60,7 +61,13 @@ export function registerUserLink(event) {
 
   root.appendChild(registerPage);
 
-  console.log(event.target);
+  document
+    .getElementById('register-form')
+    .addEventListener('submit', registerUser);
+
+  document
+    .getElementById('login-link-btn')
+    .addEventListener('click', loginUserLink);
 }
 
 /** delete below */

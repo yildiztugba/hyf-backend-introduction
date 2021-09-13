@@ -491,6 +491,19 @@ form h3 {
   margin-bottom: 1.5rem;
 }
 
+form label {
+  margin-right: 1rem;
+}
+
+.input-container {
+  margin: 2rem 1rem 3rem;
+}
+
+.input-container input {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
 .flex-container {
   display: flex;
   justify-content: center;
