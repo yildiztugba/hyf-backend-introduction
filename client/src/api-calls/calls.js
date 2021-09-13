@@ -8,7 +8,7 @@ async function performFetch(path) {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${state.token}`,
+      Authorization: state.token === undefined ? '' : `Bearer ${state.token}`,
       Username: state.username === undefined ? '' : state.username,
     },
   });

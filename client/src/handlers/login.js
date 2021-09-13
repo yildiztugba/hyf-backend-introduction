@@ -1,4 +1,5 @@
 import { postLoginUser } from '../api-calls/calls.js';
+import { homePage } from '../components/home-page.component.js';
 import { loginPageComponent } from '../components/login-page.component.js';
 
 import { state } from '../state/state.js';
@@ -54,10 +55,13 @@ export async function loginUser(event) {
   // auth procedures
   state.token = response.token;
   state.username = response.username;
-  state.isLoggedIn = true;
+  state.isSignedIn = true;
 
   // TODO redirect to the chat page
-  console.log(state);
+  if (state.isSignedIn) {
+    startApplication();
+  }
+  console.log('state', state);
 }
 
 export function loginUserLink(event) {
@@ -72,4 +76,11 @@ export function loginUserLink(event) {
   const loginPage = loginPageComponent();
 
   root.appendChild(loginPage);
+}
+
+async function startApplication() {
+  const root = document.getElementById('root');
+  root.innerHTML = '';
+  const res = await homePage();
+  root.append(res);
 }

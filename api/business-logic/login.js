@@ -31,7 +31,8 @@ const loginManager = {
 
     console.log(update, token);
     return {
-      token: token,
+      token: Object.keys(token)[0],
+      // token: token,
       username,
       message: `Session created for user ${username}`,
     };

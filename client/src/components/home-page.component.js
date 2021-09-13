@@ -28,10 +28,6 @@ export const homePage = async () => {
 
   el.appendChild(mainEl);
 
-  state.username = prompt('Please enter your username');
-  //TODO: password hash
-  state.password = prompt('Please enter your password');
-
   const footerEl = document.createElement('div');
   footerEl.classList.add('footer');
   footerEl.innerHTML = `
@@ -51,9 +47,7 @@ export const homePage = async () => {
   // register event handlers:
   document.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
-
       sendMessage();
-
     }
   });
 
