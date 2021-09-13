@@ -17,7 +17,7 @@ async function loginUser(event) {
     setTimeout(() => {
       warningDisplay.innerHTML = '';
       warningDisplay.style.display = 'none';
-    }, 3000);
+    }, 5000);
     return;
   }
 
@@ -33,10 +33,12 @@ async function loginUser(event) {
     }, 3000);
   }
 
-  console.log(response);
+  console.log(response.token);
+
+  // TODO auth procedures
+  state.token = response.token;
 
   // TODO redirect to the chat page
-  // TODO auth procedures
 }
 
 exports = { loginUser: loginUser };
@@ -48,7 +50,7 @@ const postLoginUser = async (username, password) => {
   btn.disabled = true;
   setTimeout(() => {
     btn.disabled = false;
-  }, 2000);
+  }, 1000);
 
   return await performPost('login', {
     username,
@@ -70,7 +72,7 @@ async function performPost(path, body) {
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
+    console.error(`HTTP error! status: ${response.status}\n-> ${URL}`);
   }
   const data = await response.json();
 

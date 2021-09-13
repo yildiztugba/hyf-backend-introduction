@@ -1,4 +1,5 @@
 const persistentDataAccess = require('../data-access/persistent');
+const createToken = require('../utils/createToken');
 
 const usersStore = persistentDataAccess('users');
 
@@ -6,6 +7,10 @@ const hashPassword = require('../utils/hashPassword');
 
 const loginManager = {
   checkPassword: async function (username, password) {
+    if (!username || !password) {
+      res.status(400).send('Missing username or password');
+      return;
+    }
     const hashedPassword = hashPassword(password);
     const user = { username: username, password: hashedPassword };
 
@@ -23,7 +28,17 @@ const loginManager = {
       throw new Error('Invalid username or password !');
     }
 
-    return { username };
+    // create a new session for the user
+    // generate a new session id
+    const token = createToken();
+    // sessions.push({ token: token, username: username });
+
+    console.log(token);
+    return {
+      token: token,
+      username,
+      message: `Session created for user ${username}`,
+    };
   },
 };
 

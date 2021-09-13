@@ -12,7 +12,7 @@ async function performFetch(path) {
     },
   });
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
+    console.error(`HTTP error! status: ${response.status}\n-> ${URL}`);
   }
   const data = await response.json();
 
@@ -32,7 +32,7 @@ async function performPost(path, body) {
     body: JSON.stringify(body),
   });
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
+    console.error(`HTTP error! status: ${response.status}\n-> ${URL}`);
   }
   const data = await response.json();
 
