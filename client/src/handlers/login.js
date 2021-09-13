@@ -51,7 +51,7 @@ exports = { loginUser: loginUser };
 /** delete below */
 
 const postLoginUser = async (username, password) => {
-  const btn = document.getElementById('login-btn');
+  const btn = document.getElementById('login-submit-btn');
   btn.disabled = true;
   setTimeout(() => {
     btn.disabled = false;

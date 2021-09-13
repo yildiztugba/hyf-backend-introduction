@@ -5,8 +5,6 @@ const loginController = {
     try {
       const { username: username, password } = req.body;
 
-      console.log(req.body);
-
       const result = await loginManager.checkPassword(username, password);
 
       if (result) {

@@ -14,11 +14,7 @@ const loginManager = {
     const hashedPassword = hashPassword(password);
     const user = { username: username, password: hashedPassword };
 
-    console.log(user);
-
     const registeredUsers = await usersStore.all();
-
-    console.log('existing users:', registeredUsers);
 
     const existingUser = registeredUsers.find(
       (user) => user.username === username && user.password === hashedPassword
