@@ -25,6 +25,7 @@ async function performPost(path, body) {
 
   const encodedURL = encodeURI(URL);
   const response = await fetch(encodedURL, {
+
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,6 +33,7 @@ async function performPost(path, body) {
       Username: state.username === undefined ? '' : state.username,
     },
     body: JSON.stringify(body),
+
   });
   if (!response.ok) {
     console.error(`HTTP error! status: ${response.status}\n-> ${URL}`);
@@ -47,7 +49,9 @@ export const fetchChannels = async () => {
 
 export const fetchMessagesForChannel = async (channelId) => {
   if (!channelId) {
+
     return [];
+
   }
   return await performFetch(`channels/${channelId}/messages`);
 };
@@ -57,6 +61,7 @@ export const postChannel = async (channelName) => {
 };
 
 export const postMessage = async (message) => {
+
   return await performPost(`channels/${state.currentChannelId}/messages`, {
     user: state.username,
     text: message,
@@ -82,3 +87,4 @@ export const postLogin = async (username, password) => {
     }),
   });
 };
+

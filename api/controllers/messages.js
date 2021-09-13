@@ -3,15 +3,18 @@ const messageManager = require('../business-logic/messages');
 const messageController = {
   get: async (req, res) => {
     try {
+
       const allMessages = await messageManager.getAllMessages();
       res.status(200).send(JSON.stringify(allMessages));
     } catch (error) {
       res.status(500).send(error);
     }
+
   },
   getMessagesForChannel: async (req, res) => {
     try {
       const channelId = req.params.channelId;
+
 
       const messages = await messageManager.getMessagesForChannel(channelId);
 
@@ -70,6 +73,7 @@ const messageController = {
       res.status(500).send(error.message);
     }
   },
+
 };
 
 module.exports = messageController;
