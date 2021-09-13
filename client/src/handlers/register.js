@@ -1,7 +1,6 @@
 // import { postRegisterUser } from '../api-calls/calls';
 
 import { registerPageComponent } from '../components/register-page.component.js';
-import { loginUserLink } from '../handlers/login.js';
 
 export async function registerUser(event) {
   event.preventDefault();
@@ -60,20 +59,12 @@ export function registerUserLink(event) {
   const registerPage = registerPageComponent();
 
   root.appendChild(registerPage);
-
-  document
-    .getElementById('register-form')
-    .addEventListener('submit', registerUser);
-
-  document
-    .getElementById('login-link-btn')
-    .addEventListener('click', loginUserLink);
 }
 
 /** delete below */
 
 const postRegisterUser = async (username, password) => {
-  const btn = document.getElementById('register-btn');
+  const btn = document.getElementById('register-submit-btn');
   btn.disabled = true;
   setTimeout(() => {
     btn.disabled = false;

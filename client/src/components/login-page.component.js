@@ -1,3 +1,6 @@
+import { loginUser } from '../handlers/login.js';
+import { registerUserLink } from '../handlers/register.js';
+
 export const loginPageComponent = () => {
   const container = document.createElement('div');
   container.style = 'height:100%;';
@@ -50,6 +53,12 @@ export const loginPageComponent = () => {
         </div>
       </form>
   `;
+
+  container.querySelector('#login-form').addEventListener('submit', loginUser);
+
+  container
+    .querySelector('#register-link-btn')
+    .addEventListener('click', registerUserLink);
 
   return container;
 };

@@ -18,6 +18,9 @@ export async function loginUser(event) {
     warningDisplay.innerHTML = `<i class="fa fa-times-circle"></i> ${response.error}`;
     warningDisplay.style.display = 'block';
 
+    const successDisplay = document.getElementById('success');
+    successDisplay.style.display = 'none';
+
     setTimeout(() => {
       warningDisplay.innerHTML = '';
       warningDisplay.style.display = 'none';
@@ -30,6 +33,9 @@ export async function loginUser(event) {
     successDisplay.innerHTML = `<i class="fa fa-check"></i> User 
     <span>${response.username}</span> is successfully logged in!`;
     successDisplay.style.display = 'block';
+
+    const warningDisplay = document.getElementById('error');
+    warningDisplay.style.display = 'none';
 
     setTimeout(() => {
       successDisplay.innerHTML = '';
@@ -60,12 +66,6 @@ export function loginUserLink(event) {
   const loginPage = loginPageComponent();
 
   root.appendChild(loginPage);
-
-  document.getElementById('login-form').addEventListener('submit', loginUser);
-
-  document
-    .getElementById('register-link-btn')
-    .addEventListener('click', registerUserLink);
 }
 
 /** delete below */
