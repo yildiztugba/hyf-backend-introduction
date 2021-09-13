@@ -1,7 +1,5 @@
 import { homePage } from './components/home-page.component.js';
 import { loginPageComponent } from './components/login-page.component.js';
-import { loginUser } from './handlers/login.js';
-import { registerUserLink } from './handlers/register.js';
 
 const root = document.getElementById('root');
 while (root.firstChild) {

@@ -1,10 +1,17 @@
-// import { postRegisterUser } from '../api-calls/calls';
+import { postRegisterUser } from '../api-calls/calls.js';
 
 import { registerPageComponent } from '../components/register-page.component.js';
 
 export async function registerUser(event) {
   event.preventDefault();
   event.stopPropagation();
+
+  const btn = document.getElementById('register-submit-btn');
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.disabled = false;
+  }, 2000);
 
   if (event.target[1].value !== event.target[2].value) {
     const warningDisplay = document.getElementById('error');
@@ -59,40 +66,4 @@ export function registerUserLink(event) {
   const registerPage = registerPageComponent();
 
   root.appendChild(registerPage);
-}
-
-/** delete below */
-
-const postRegisterUser = async (username, password) => {
-  const btn = document.getElementById('register-submit-btn');
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.disabled = false;
-  }, 2000);
-
-  return await performPost('register', {
-    username,
-    password,
-  });
-};
-
-async function performPost(path, body) {
-  const URL = `${window.location.origin}/api/${path}`;
-
-  const encodedURL = encodeURI(URL);
-  const response = await fetch(encodedURL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      // 'Authorization': state.token === undefined ? '' : `Bearer ${state.token}`,
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}\n-> ${URL}`);
-  }
-  const data = await response.json();
-
-  return data;
 }

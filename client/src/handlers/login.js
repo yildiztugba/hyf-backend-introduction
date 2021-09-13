@@ -1,12 +1,18 @@
-// import { postRegisterUser } from '../api-calls/calls';
+import { postLoginUser } from '../api-calls/calls.js';
 import { loginPageComponent } from '../components/login-page.component.js';
 
 import { state } from '../state/state.js';
-import { registerUserLink } from './register.js';
 
 export async function loginUser(event) {
   event.preventDefault();
   event.stopPropagation();
+
+  const btn = document.getElementById('login-submit-btn');
+  btn.disabled = true;
+
+  setTimeout(() => {
+    btn.disabled = false;
+  }, 1000);
 
   const response = await postLoginUser(
     event.target[0].value,
@@ -66,40 +72,4 @@ export function loginUserLink(event) {
   const loginPage = loginPageComponent();
 
   root.appendChild(loginPage);
-}
-
-/** delete below */
-
-const postLoginUser = async (username, password) => {
-  const btn = document.getElementById('login-submit-btn');
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.disabled = false;
-  }, 1000);
-
-  return await performPost('login', {
-    username,
-    password,
-  });
-};
-
-async function performPost(path, body) {
-  const URL = `${window.location.origin}/api/${path}`;
-
-  const encodedURL = encodeURI(URL);
-  const response = await fetch(encodedURL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      // 'Authorization': state.token === undefined ? '' : `Bearer ${state.token}`,
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (!response.ok) {
-    console.error(`HTTP error! status: ${response.status}\n-> ${URL}`);
-  }
-  const data = await response.json();
-
-  return data;
 }
