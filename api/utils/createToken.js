@@ -1,12 +1,19 @@
+const jwt = require('jsonwebtoken');
+
+const JWT_SECRET = require('../../config/tokens');
+
 const crypto = require('crypto');
 
-function createToken() {
-  const token = {};
-  const tokenHex = crypto.randomBytes(32).toString('hex');
-  const createdAt = new Date().getTime();
-  const expiresIn = 1000 * 60 * 60 * 24 * 7; // 1 week
+function createToken(user) {
+  const payload = {
+    iss: 'Hack Your Future Belgium',
+    userId: `${user.id}`,
+    username: `${user.username}`,
+    iat: new Date().getTime(),
+    exp: new Date().setDate(new Date().getDate() + 1),
+  };
 
-  token[tokenHex] = { createdAt, expiresIn };
+  const token = jwt.sign(payload, JWT_SECRET);
 
   return token;
 }

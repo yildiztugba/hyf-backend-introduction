@@ -1,25 +1,14 @@
 {
   "users": [
     {
-      "id": "613f4a72f5a832aa04000001",
+      "id": "61422fb6c9a058e100000001",
       "username": "erkam",
-      "password": "c0067d4af4e87f00dbac63b6156828237059172d1bbeac67427345d6a9fda484",
-      "token": {
-        "69aa12caaf797059abf2af85294cefd32cb08585500be2661d3aa631879170ae": {
-          "createdAt": 1631566088934,
-          "expiresIn": 604800000
-        }
-      }
+      "password": "5dcfb71cb519dd8a882e94fa0c8ded4b894ae83ce1aeec92b60b8e8bb42fa044"
     },
     {
-      "id": "613fa5fc9b3ab6f304000001",
-      "username": "a",
-      "password": "8a5e1d339fafc39350fd8cf1d7ca7982091c27f6b77f75bd4ddab3df425b4f8c"
-    },
-    {
-      "id": "613fa60600d5ee0105000002",
-      "username": "aqq",
-      "password": "cd1984b144233807c63bcac47a053408ef4eeadb17854077d8ba5942c6a2b846"
+      "id": "61422fdac9a058e100000003",
+      "username": "admin",
+      "password": "115b1da3312db0f796b021d157c39135f910305ddceab93cd5bbf078e4b7d390"
     }
   ],
   "channels": [
@@ -70,13 +59,6 @@
       "channelId": "61191b0a3f8b5fde1d000001"
     },
     {
-      "text": "hi",
-      "id": "613e0a99c6d1fce408000001",
-      "user": "a",
-      "date": "2021-09-12T14:11:37.331Z",
-      "channelId": "61224defde5c815c11000001"
-    },
-    {
       "text": "WOW",
       "id": "613e0c9a6367922009000001",
       "user": "1",
@@ -91,31 +73,38 @@
       "channelId": "613fb0c69edec58a06000001"
     },
     {
-      "text": "",
-      "id": "613fb58f168dade506000001",
+      "text": "Thanks for sunday classes, it means a lot",
+      "id": "6140df857b5be98405000001",
       "user": "erkam",
-      "date": "2021-09-13T20:33:19.268Z",
+      "date": "2021-09-14T17:44:37.644Z",
+      "channelId": "61191b0a3f8b5fde1d000001"
+    },
+    {
+      "text": "Welcome to hobbies channel",
+      "id": "6142041da4cc2e8800000003",
+      "user": "admin",
+      "date": "2021-09-15T14:33:01.509Z",
+      "channelId": "61224defde5c815c11000001"
+    },
+    {
+      "text": "here we all talk about hobbies",
+      "id": "61420430a4cc2e8800000004",
+      "user": "admin",
+      "date": "2021-09-15T14:33:20.988Z",
+      "channelId": "61224defde5c815c11000001"
+    },
+    {
+      "text": "",
+      "id": "61422fc2c9a058e100000002",
+      "user": "erkam",
+      "date": "2021-09-15T17:39:14.383Z",
       "channelId": "undefined"
     },
     {
       "text": "",
-      "id": "613fb64545ce293307000001",
+      "id": "614232a547f4820401000001",
       "user": "erkam",
-      "date": "2021-09-13T20:36:21.417Z",
-      "channelId": "undefined"
-    },
-    {
-      "text": "",
-      "id": "613fb73f4ec7606007000001",
-      "user": "erkam",
-      "date": "2021-09-13T20:40:31.517Z",
-      "channelId": "undefined"
-    },
-    {
-      "text": "",
-      "id": "613fb90941a7cde607000001",
-      "user": "erkam",
-      "date": "2021-09-13T20:48:09.032Z",
+      "date": "2021-09-15T17:51:33.630Z",
       "channelId": "undefined"
     }
   ]

@@ -11,7 +11,7 @@ const loginManager = {
       res.status(400).send('Missing username or password');
       return;
     }
-    const hashedPassword = hashPassword(password);
+    const hashedPassword = hashPassword(`${username}.${password}`);
     const user = { username: username, password: hashedPassword };
 
     const registeredUsers = await usersStore.all();
@@ -24,13 +24,10 @@ const loginManager = {
       throw new Error('Invalid username or password !');
     }
 
-    const token = createToken();
-    existingUser.token = token;
-
-    const update = await usersStore.update(existingUser.id, existingUser);
+    const token = createToken(existingUser);
 
     return {
-      token: Object.keys(token)[0],
+      token: token,
       username,
       message: `Session created for user ${username}`,
     };
