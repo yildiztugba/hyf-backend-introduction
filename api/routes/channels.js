@@ -4,9 +4,9 @@ const channelController = require('../controllers/channels');
 const channelRoutes = express.Router();
 
 channelRoutes.use((req, res, next) => {
-  console.log('api!');
+  console.log('api! channels route');
   next();
-}); 
+});
 
 channelRoutes.get('/', channelController.get);
 channelRoutes.get('/:channelId', channelController.getChannelById);

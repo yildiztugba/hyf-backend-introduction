@@ -10,8 +10,9 @@ export const channelClicked = (event) => {
 }
 
 export const sendMessage = async () => {
-  const message = document.getElementById("chat-field").value;
-  await postMessage(message);
+
+  await postMessage(document.getElementById("chat-field").value);
+
   document.getElementById("chat-field").value = "";
 }
 

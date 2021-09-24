@@ -1,10 +1,11 @@
 import { homePage } from './components/home-page.component.js';
+import { loginPageComponent } from './components/login-page.component.js';
 
-
-async function startApplication() {
-  const root = document.getElementById('root');
-  root.innerHTML = '';
-  const res = await homePage();
-  root.append(res);
+const root = document.getElementById('root');
+while (root.firstChild) {
+  root.removeChild(root.firstChild);
 }
-startApplication();
+const loginPage = loginPageComponent();
+
+root.appendChild(loginPage);
+

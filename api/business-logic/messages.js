@@ -6,39 +6,52 @@ const messageStore = persistentDataAccess('messages');
 
 const messageManager = {
   createMessage: async (user, messageContent, channelId) => {
+
+    const id = objectId().toString();
+
     const message = {
       text: messageContent,
-      id: objectId().toString(),
-      user: user,
-      channelId: channelId,
-      date: new Date()
-    }
+      id: id,
+      user,
+      date: new Date(),
+      channelId,
+    };
+
+
     await messageStore.create(message);
     return message;
   },
   updateMessage: async (message) => {
-    return await messageStore.update(message.id, message);
+
+    const success = await messageStore.update(message.id, message);
+
+    if (!success) {
+      throw new Error(`Cannot update the message ${message.id}`);
+    }
+
+    return message;
   },
   removeMessage: async (messageId) => {
-   return await messageStore.remove(messageId);
+    const success = await messageStore.remove(messageId);
+    return success;
   },
   getMessage: async (messageId) => {
-    return await messageStore.read(messageId);
+    return await messageStore.all().find((message) => message.id === messageId);
+
   },
   getAllMessages: async () => {
     return await messageStore.all();
   },
   getMessagesForChannel: async (channelId) => {
-    const result = [];
-    const allMessages = await messageStore.all();
-    for (let i = 0; i < allMessages.length; i++) {
-      const theMessage = allMessages[i];
-      if (theMessage.channelId === channelId) {
-        result.push(theMessage);
-      }
-    }
-    return result;
-  }
+
+    const messages = await messageStore.all();
+    const filteredMessages = messages.filter(
+      (message) => message.channelId === channelId
+    );
+
+    return filteredMessages;
+  },
+
 };
 
 module.exports = messageManager;
