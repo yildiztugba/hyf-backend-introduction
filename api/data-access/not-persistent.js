@@ -50,7 +50,7 @@ const notPersistentDataAccess = (collectionName) => {
 
     find: async (key = '', value) => {
       const found = collection.find((entry) =>
-        util.isDeepStrictEqual(entry[key], value)
+        util.isDeepStrictEqual(entry[key], value),
       );
       return found;
     },

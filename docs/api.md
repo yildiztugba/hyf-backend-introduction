@@ -13,18 +13,23 @@
 <!-- BEGIN TOC -->
 
 - business-logic
-  - [users.js](#apibusiness-logicusersjs)
+  - [channels.js](#apibusiness-logicchannelsjs)
+  - [messages.js](#apibusiness-logicmessagesjs)
+- config
+  - [default.js](#apiconfigdefaultjs)
+  - [development.js](#apiconfigdevelopmentjs)
+  - [index.js](#apiconfigindexjs)
+  - [production.js](#apiconfigproductionjs)
 - controllers
-  - [hello.js](#apicontrollershellojs)
-  - [users.js](#apicontrollersusersjs)
+  - [channels.js](#apicontrollerschannelsjs)
+  - [messages.js](#apicontrollersmessagesjs)
 - data-access
-  - [hello.js](#apidata-accesshellojs)
   - [not-persistent.js](#apidata-accessnot-persistentjs)
   - [persistent.js](#apidata-accesspersistentjs)
-- middleware
 - routes
-  - [hello.js](#apirouteshellojs)
-  - [users.js](#apiroutesusersjs)
+  - [channels.js](#apirouteschannelsjs)
+  - [index.js](#apiroutesindexjs)
+  - [messages.js](#apiroutesmessagesjs)
 - utils
 - [index.js](#apiindexjs)
 
@@ -38,7 +43,31 @@
 
 # /business-logic
 
-<details><summary><a href="../../api/business-logic/users.js" id="apibusiness-logicusersjs">../api/business-logic/users.js</a></summary>
+<details><summary><a href="../../api/business-logic/channels.js" id="apibusiness-logicchannelsjs">../api/business-logic/channels.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/business-logic/messages.js" id="apibusiness-logicmessagesjs">../api/business-logic/messages.js</a></summary>
+
+</details>
+
+---
+
+# /config
+
+<details><summary><a href="../../api/config/default.js" id="apiconfigdefaultjs">../api/config/default.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/config/development.js" id="apiconfigdevelopmentjs">../api/config/development.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/config/index.js" id="apiconfigindexjs">../api/config/index.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/config/production.js" id="apiconfigproductionjs">../api/config/production.js</a></summary>
 
 </details>
 
@@ -46,52 +75,17 @@
 
 # /controllers
 
-<details><summary><a href="../../api/controllers/hello.js" id="apicontrollershellojs">../api/controllers/hello.js</a></summary>
+<details><summary><a href="../../api/controllers/channels.js" id="apicontrollerschannelsjs">../api/controllers/channels.js</a></summary>
 
 </details>
 
-<details><summary><a href="../../api/controllers/users.js" id="apicontrollersusersjs">../api/controllers/users.js</a></summary>
+<details><summary><a href="../../api/controllers/messages.js" id="apicontrollersmessagesjs">../api/controllers/messages.js</a></summary>
 
 </details>
 
 ---
 
 # /data-access
-
-<details><summary><a href="../../api/data-access/hello.js" id="apidata-accesshellojs">../api/data-access/hello.js</a></summary>
-
-## Functions
-
-<dl>
-<dt><a href="#constructFilePath">constructFilePath(fileName)</a> ⇒ <code>string</code></dt>
-<dd><p>Generates an absolute path for a specific file in the app&#39;s data.</p>
-</dd>
-<dt><a href="#readHello">readHello()</a> ⇒ <code>Promise.&lt;string&gt;</code></dt>
-<dd><p>Reads the contents of &quot;hello.txt&quot;.</p>
-</dd>
-</dl>
-
-<a name="constructFilePath"></a>
-
-## constructFilePath(fileName) ⇒ <code>string</code>
-
-Generates an absolute path for a specific file in the app's data.
-
-**Returns**: <code>string</code> - An absolute path to that file.
-
-| Param    | Type                | Description       |
-| -------- | ------------------- | ----------------- |
-| fileName | <code>string</code> | The file to read. |
-
-<a name="readHello"></a>
-
-## readHello() ⇒ <code>Promise.&lt;string&gt;</code>
-
-Reads the contents of "hello.txt".
-
-**Returns**: <code>Promise.&lt;string&gt;</code> - Text content from the "hello.txt" file.
-
-</details>
 
 <details><summary><a href="../../api/data-access/not-persistent.js" id="apidata-accessnot-persistentjs">../api/data-access/not-persistent.js</a></summary>
 
@@ -103,17 +97,17 @@ Reads the contents of "hello.txt".
 
 ---
 
-# /middleware
-
----
-
 # /routes
 
-<details><summary><a href="../../api/routes/hello.js" id="apirouteshellojs">../api/routes/hello.js</a></summary>
+<details><summary><a href="../../api/routes/channels.js" id="apirouteschannelsjs">../api/routes/channels.js</a></summary>
 
 </details>
 
-<details><summary><a href="../../api/routes/users.js" id="apiroutesusersjs">../api/routes/users.js</a></summary>
+<details><summary><a href="../../api/routes/index.js" id="apiroutesindexjs">../api/routes/index.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../api/routes/messages.js" id="apiroutesmessagesjs">../api/routes/messages.js</a></summary>
 
 </details>
 

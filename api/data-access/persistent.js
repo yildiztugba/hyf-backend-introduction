@@ -6,7 +6,7 @@ const util = require('util');
 
 const writeFilePromise = util.promisify(fs.writeFile);
 
-const { DATA_PATH } = require('../../config');
+const { DATA_PATH } = require('../config');
 
 const persistentPath = path.join(DATA_PATH, `persistent.json`);
 
@@ -21,7 +21,7 @@ const persist = async (data = {}) =>
   await writeFilePromise(
     persistentPath,
     JSON.stringify(data, null, '  '),
-    'utf-8'
+    'utf-8',
   );
 
 const persistentDataAccess = (collectionName) => {
@@ -75,14 +75,14 @@ const persistentDataAccess = (collectionName) => {
 
     find: async (key = '', value) => {
       const found = collection.find((entry) =>
-        util.isDeepStrictEqual(entry[key], value)
+        util.isDeepStrictEqual(entry[key], value),
       );
       return found;
     },
 
     all: async () => {
       return collection;
-    }
+    },
   };
 };
 

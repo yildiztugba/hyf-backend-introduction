@@ -1,5 +1,4 @@
-import { homePage } from './components/home-page.component.js';
-
+import { homePage } from './presentation/components/home-page.component.js';
 
 async function startApplication() {
   const root = document.getElementById('root');

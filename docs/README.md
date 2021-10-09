@@ -15,10 +15,10 @@
 - .vscode
 - api
 - client
-- config
 - data
 - planning
 - [index.js](#indexjs)
+- [vite.config.js](#viteconfigjs)
 
 ---
 
@@ -40,10 +40,6 @@
 
 ---
 
-# /config
-
----
-
 # /data
 
 ---
@@ -53,6 +49,10 @@
 ---
 
 <details><summary><a href="../../index.js" id="indexjs">../index.js</a></summary>
+
+</details>
+
+<details><summary><a href="../../vite.config.js" id="viteconfigjs">../vite.config.js</a></summary>
 
 </details>
 

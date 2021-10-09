@@ -1,6 +1,13 @@
-import { fetchChannels, fetchMessagesForChannel } from "../api-calls/calls.js";
-import { state } from "../state/state.js";
-import { sendMessage, channelClicked, addChannel } from "../handlers/handlers.js";
+import {
+  fetchChannels,
+  fetchMessagesForChannel,
+} from '../../data-access/api-calls/calls.js';
+import { insertOrUpdate, find } from '../../data-access/index.js';
+import {
+  sendMessage,
+  channelClicked,
+  addChannel,
+} from '../handlers/handlers.js';
 
 export const homePage = async () => {
   const el = document.createElement('div');
@@ -24,17 +31,16 @@ export const homePage = async () => {
 
   el.appendChild(mainEl);
 
-  state.username = prompt("Please enter your username");
+  insertOrUpdate('username', prompt('Please enter your username'));
 
   const footerEl = document.createElement('div');
   footerEl.classList.add('footer');
-  footerEl.innerHTML = 
-  `
+  footerEl.innerHTML = `
   <div class="user-menu"><span class="user-menu_profile-pic"></span>
   <button id="btn-add-channel">
     Add channel
   </button>
-  <span class="user-menu_username">${state.username}</span></div>
+  <span class="user-menu_username">${find('username')}</span></div>
   <div class="input-box">
     <input id="chat-field" class="input-box_text" type="text"/>
   </div>
@@ -44,10 +50,9 @@ export const homePage = async () => {
   registerUpdates(headerEl, channelListingsEl, messageHistoryEl);
 
   // register event handlers:
-  document.addEventListener("keyup", function(event) {
+  document.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
-        alert('Enter is pressed!');
-        sendMessage();
+      sendMessage();
     }
   });
 
@@ -55,28 +60,30 @@ export const homePage = async () => {
   footerEl.addEventListener('click', addChannel);
 
   return el;
-}
+};
 
 const registerUpdates = (headerEl, channelListEl, messagesEl) => {
   setInterval(async () => {
     headerEl.innerHTML = getHeaderInnerHtml();
-    const messages = await fetchMessagesForChannel(state.currentChannelId);
+    const messages = await fetchMessagesForChannel(find('currentChannelId'));
     const channels = await fetchChannels();
     channelListEl.innerHTML = getChannelListInnerHtml(channels);
     messagesEl.innerHTML = getMessagesInnerHtml(messages);
   }, 300);
-}
+};
 
 const getChannelListInnerHtml = (channels) => {
-  const channelEntriesHtml = channels.map(c => {
-    if (state.currentChannelId === c.id) {
-      return `<li data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel active"><a data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel_name">
+  const channelEntriesHtml = channels
+    .map((c) => {
+      if (find('currentChannelId') === c.id) {
+        return `<li data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel active"><a data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel_name">
       <span data-channel-id="${c.id}" data-channel-name="${c.name}"><span data-channel-id="${c.id}" data-channel-name="${c.name}" class="prefix">#</span>${c.name}</span></a></li>`;
-    } else {
-      return `<li data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel"><a data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel_name">
+      } else {
+        return `<li data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel"><a data-channel-id="${c.id}" data-channel-name="${c.name}" class="channel_name">
       <span data-channel-id="${c.id}" data-channel-name="${c.name}"><span data-channel-id="${c.id}" data-channel-name="${c.name}" class="prefix">#</span>${c.name}</span></a></li>`;
-    }
-  }).join('');
+      }
+    })
+    .join('');
 
   return `
   <div class="listings_channels">
@@ -86,10 +93,12 @@ const getChannelListInnerHtml = (channels) => {
     </ul>
   </div>
       `;
-}
+};
 
 const getMessagesInnerHtml = (messages) => {
-  return messages.map(m => `
+  return messages
+    .map(
+      (m) => `
   <div class="message">
     <a class="message_profile-pic" href=""></a>
     <a class="message_username" href="">${m.user}</a>
@@ -99,15 +108,19 @@ const getMessagesInnerHtml = (messages) => {
      ${m.text}
     </span>
   </div>
-  `).join('');
-}
+  `,
+    )
+    .join('');
+};
 
 const getHeaderInnerHtml = () => {
   return `
 <div class="team-menu">Team Awesome</div>
-<div class="channel-menu"><span class="channel-menu_name"><span class="channel-menu_prefix">#</span>                ${state.currentChannelName}</span></div>
+<div class="channel-menu"><span class="channel-menu_name"><span class="channel-menu_prefix">#</span>                ${find(
+    'currentChannelName',
+  )}</span></div>
   `;
-}
+};
 
 /**
  * `

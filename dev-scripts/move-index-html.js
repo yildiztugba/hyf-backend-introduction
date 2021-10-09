@@ -19,8 +19,8 @@ fs.readFile(
         path.join(__dirname, '..', 'dist', 'index.html'),
         pathAligned,
         'utf-8',
-        (err) => err && console.error(err)
+        (err) => err && console.error(err),
       );
     }
-  }
+  },
 );

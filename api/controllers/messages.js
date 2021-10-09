@@ -12,23 +12,23 @@ const messageController = {
     // TODO implement
     res.send(JSON.stringify([]));
   },
-  put: async(req, res) => {
+  put: async (req, res) => {
     // updates the messages with the specified id
     // passed as /api/messages/:messageId
     // TODO implement
     res.send('Not yet implemented');
   },
-  post: async(req, res) => {
+  post: async (req, res) => {
     // creates a new message based on the passed body
     // TODO implement
     res.send('Not yet implemented');
   },
-  delete: async(req, res) => {
+  delete: async (req, res) => {
     // deleted the message with the specified id
     // passed as /api/messages/:messageId
     // TODO implement
     res.send('Not yet implemented');
-  }
+  },
 };
 
 module.exports = messageController;
