@@ -1,12 +1,16 @@
-import { state } from '../../data-access/state/state.js';
-import { postChannel, postMessage } from '../../data-access/api-calls/calls.js';
+import { fetchChannels, fetchMessagesForChannel, postChannel, postMessage } from '../../data-access/api-calls/calls.js';
+import { getHeaderInnerHtml } from '../components/header.component.js';
+import { getMessagesInnerHtml } from '../components/message-history.component.js';
+import { getChannelListInnerHtml } from '../components/channel-listings.component.js';
+import { insertOrUpdate } from '../../data-access/index.js';
+import { find } from '../../data-access/index.js';
 
 export const channelClicked = (event) => {
   if (!event.target.dataset.channelId) {
     return;
   }
-  state.currentChannelId = event.target.dataset.channelId;
-  state.currentChannelName = event.target.dataset.channelName;
+  insertOrUpdate('currentChannelId', event.target.dataset.channelId);
+  insertOrUpdate('currentChannelName', event.target.dataset.channelName);
 };
 
 export const sendMessage = async () => {
@@ -20,3 +24,14 @@ export const addChannel = async (event) => {
     await postChannel(channelName);
   }
 };
+
+export const updateUI = async () => {
+  const headerEl = document.getElementById('header');
+  const channelListEl = document.getElementById('channelListings');
+  const messagesEl = document.getElementById('messageHistory');
+  headerEl.innerHTML = getHeaderInnerHtml();
+  const messages = await fetchMessagesForChannel(find('currentChannelId'));
+  const channels = await fetchChannels();
+  channelListEl.innerHTML = getChannelListInnerHtml(channels);
+  messagesEl.innerHTML = getMessagesInnerHtml(messages);
+}
