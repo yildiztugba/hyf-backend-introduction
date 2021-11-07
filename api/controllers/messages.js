@@ -5,23 +5,38 @@ const messageController = {
     // returns all messages currently in the system
     // TODO implement
     try {
-      res.send(JSON.stringify(messageManager.getAllMessages()));
+      const messages = await messageManager.getAllMessages();
+      res.status(200).send(JSON.stringify(messages));
     } catch (error) {
       res.status(500).send(error);
+      console.log("hyey");
     }
   },
   getMessagesForChannel: async (req, res) => {
     // returns the messages that belong in the channel with the specified id
     // passed as /api/channels/:channelId/messages
     // TODO implement
-    
-    res.send(JSON.stringify([]));
+    try {
+      res.status(200).send(JSON.stringify([messageManager.getMessagesForChannel()]));
+    } catch (error) {
+      res.status(500).send(error);
+    }
   },
-  put: async (req, res) => {
+  put: async (req, res, next) => {
     // updates the messages with the specified id
     // passed as /api/messages/:messageId
     // TODO implement
-    res.send('Not yet implemented');
+    try {
+      const messageId = req.params.messageId;
+      const newData = req.body;
+      if (newData.messageId !== messageId) {
+        throw Error("Cannot change channel ID after creation!");
+      }
+      await messageManager.updateMessage(newData);
+      res.status(200).send(JSON.stringify(newData));
+    } catch (error) {
+      next(error);
+    }
   },
   post: async (req, res) => {
     // creates a new message based on the passed body
@@ -29,17 +44,33 @@ const messageController = {
     try {
       const user = req.body.user;
       const content = req.body.text;
-      const channelId = req.body.channelId;
-      res.send(JSON.stringify(( await messageManager.createMessage(user,content,channelId))));
+      const channelId = req.params.channelId;
+      const postmessage = await messageManager.createMessage(
+        user,
+        content,
+        channelId
+      );
+      res.status(200).send(JSON.stringify((postmessage)));
     } catch (error) {
-      res.send('Not yet implemented');
+      res.status(500).send(error);
     }
   },
   delete: async (req, res) => {
     // deleted the message with the specified id
     // passed as /api/messages/:messageId
     // TODO implement
-    res.send('Not yet implemented');
+
+    try {
+      const messageId = req.params.messageId;
+      await messageManager.removeMessage(messageId);
+      res.status(200).send(
+        JSON.stringify({
+          message: `Message ${messageId} was successfully deleted!`,
+        }),
+      );
+    } catch (error) {
+      res.status(500).send(error);
+    }
   },
 };
 

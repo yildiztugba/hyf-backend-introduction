@@ -9,12 +9,14 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const config = require('./config');
-const routes = require('./routes/index');
+const routes = require('./utils/index');
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.disable("x-powered-by");
 
 app.use(
   morgan('combined', {
@@ -27,8 +29,18 @@ app.use(
 if (config.MODE === 'development') {
   app.use(morgan('dev'));
 }
+app.use(function(req,res,next){
+  console.log(`${req.method} ${req.path}`);
+  console.log(`${JSON.stringify(req.headers, null, 2)}`);
+  next();
+})
+app.use("/api", routes);
 
-app.use('/api', routes);
+app.use((err, req , res, next) => { 
+
+  console.error(err.message, err.stack);
+  res.status(500).send({ message: "somethings wrong" });
+});
 
 app.use('/', express.static(path.join(__dirname, '..', config.STATIC_DIR)));
 

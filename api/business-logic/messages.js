@@ -2,7 +2,7 @@ const objectId = require('objectid');
 
 const persistentDataAccess = require('../data-access/persistent');
 
-const messageStore = persistentDataAccess('messages');
+const  messageStore = persistentDataAccess('messages');
 
 const messageManager = {
   createMessage: async (user, messageContent, channelId) => {
